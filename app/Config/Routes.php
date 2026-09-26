@@ -235,3 +235,11 @@ $routes->get(
     'forum/channel/(:num)/voice-signals',
     'ForumController::getVoiceSignals/$1'
 );
+// =====================================================
+// SPIN
+// =====================================================
+
+$routes->get('spin', 'SpinnerController::index');
+$routes->post('spin/save', 'SpinnerController::save');
+$routes->get('spin/history/(:num)', 'SpinnerController::history/$1');
+$routes->post('spin/save-note', 'SpinnerController::saveNote');

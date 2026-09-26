@@ -14,6 +14,9 @@ class SpinHistoryModel extends Model
 
     protected $allowedFields = [
         'id_group',
+        'id_task',
+        'session_id',
+        'anggota',
         'hasil',
         'created_by',
         'created_at',
