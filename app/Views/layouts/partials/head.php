@@ -9,28 +9,85 @@
 <!-- LIBRIS type -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?= base_url('assets/tabler/tabler-icons.min.css') ?>">
 <link rel="icon" type="image/png" href="<?= base_url('assets/libris-favicon.png') ?>">
 
 <style>
   /* ════════ LIBRIS — Admin (over AdminLTE) ════════ */
-  :root{
-    --forest:#224B29; --accent:#2F6B3C; --tint:#EAF1E9; --paper:#FAFAF8; --surface:#FFF;
-    --ink:#18241B; --muted:#6B7280; --faint:#9AA29B; --border:#ECECEC; --border-2:#E2E2DE;
-    --amber:#8A5A1A; --amber-bg:#F3EAD6; --mono:'Geist Mono',ui-monospace,monospace;
-    --r-sm:9px; --r-md:12px; --r-lg:16px;
-    --sh-sm:0 1px 3px rgba(24,36,27,.05); --sh-md:0 8px 24px rgba(24,36,27,.06); --sh-lg:0 20px 48px rgba(24,36,27,.12);
-    /* alias lama supaya inline var() di halaman lama → LIBRIS */
-    --y2k-blue:#224B29; --y2k-blue-deep:#16331c; --y2k-pink:#2F6B3C; --y2k-pink-hot:#224B29;
-    --y2k-pink-soft:#EAF1E9; --y2k-cyan:#EAF1E9; --y2k-lime:#EAF1E9; --y2k-yellow:#F3EAD6; --y2k-peach:#F3EAD6;
-    --y2k-bg:#FAFAF8; --y2k-surface:#FFF; --y2k-ink:#18241B; --y2k-ink-soft:#6B7280; --y2k-border:#ECECEC;
-    --ink-900:#18241B; --ink-700:#224B29; --ink-500:#6B7280; --ink-300:#9AA29B; --ink-100:#EAF1E9; --ink-50:#FAFAF8;
-    --surface:#FFF; --border:#ECECEC; --accent-2:#2F6B3C; --radius:12px;
+ :root{
+      /* ── Collabify Brand ── */
+      --forest:#6F9FCB;
+      --accent:#A8C7E8;
+      --tint:#EAF3FA;
+
+      --paper:#FAF9F5;
+      --surface:#FFFFFF;
+
+      --ink:#24262B;
+      --muted:#777A80;
+      --faint:#A5A7AC;
+
+      --border:#E4E5E7;
+      --border-2:#D9DBDE;
+
+      /* ── Accent colors ── */
+      --pink:#F2A7B5;
+      --pink-hot:#E98298;
+      --pink-soft:#FCE8EC;
+
+      --yellow:#F5D96B;
+      --peach:#F7D6D0;
+
+      /* ── Status ── */
+      --amber:#8A6417;
+      --amber-bg:#FFF4CF;
+
+      /* ── Typography ── */
+      --mono:'Geist Mono',ui-monospace,monospace;
+
+      /* ── Radius ── */
+      --r-sm:9px;
+      --r-md:12px;
+      --r-lg:16px;
+
+      /* ── Shadows ── */
+      --sh-sm:0 1px 3px rgba(36,38,43,.05);
+      --sh-md:0 8px 24px rgba(36,38,43,.07);
+      --sh-lg:0 20px 48px rgba(36,38,43,.12);
+
+      /* ── Legacy aliases ── */
+      --y2k-blue:#A8C7E8;
+      --y2k-blue-deep:#6F9FCB;
+      --y2k-pink:#F2A7B5;
+      --y2k-pink-hot:#E98298;
+      --y2k-pink-soft:#FCE8EC;
+      --y2k-cyan:#EAF3FA;
+      --y2k-lime:#F5D96B;
+      --y2k-yellow:#F5D96B;
+      --y2k-peach:#F7D6D0;
+
+      --y2k-bg:#FAF9F5;
+      --y2k-surface:#FFFFFF;
+      --y2k-ink:#24262B;
+      --y2k-ink-soft:#777A80;
+      --y2k-border:#E4E5E7;
+
+      --ink-900:#24262B;
+      --ink-700:#6F9FCB;
+      --ink-500:#777A80;
+      --ink-300:#A5A7AC;
+      --ink-100:#EAF3FA;
+      --ink-50:#FAF9F5;
+
+      --surface:#FFFFFF;
+      --border:#E4E5E7;
+      --accent-2:#6F9FCB;
+      --radius:12px;
   }
   body,.wrapper,.content-wrapper,.main-sidebar,.main-header,.card,.btn,.table,
   input,select,textarea,.modal,.nav-link,.brand-text,h1,h2,h3,h4,h5,h6,p,a,span,div,td,th,label{
-    font-family:'Geist',system-ui,-apple-system,sans-serif;
+    font-family:'Plus Jakarta Sains',system-ui,-apple-system,sans-serif;
   }
   .font-mono,.mono{font-family:var(--mono)!important;}
   body.hold-transition,.wrapper{background:var(--paper)!important;}
@@ -84,8 +141,8 @@
     transition:transform .14s,background .14s,box-shadow .14s!important;}
   .btn:hover{transform:translateY(-1px);}
   .btn-sm{font-size:12px!important;padding:6px 11px!important;border-radius:8px!important;}
-  .btn-primary,.btn-success{background:var(--forest)!important;border-color:var(--forest)!important;color:#fff!important;box-shadow:0 4px 12px rgba(34,75,41,.18)!important;}
-  .btn-primary:hover,.btn-success:hover{background:#1d4124!important;}
+  .btn-primary,.btn-success{background:var(--forest)!important;border-color:var(--forest)!important;color:#fff!important;box-shadow:0 4px 12px rgba(111,159,203,.20)!important;}
+  .btn-primary:hover,.btn-success:hover{background:#5B8DBB!important;}
   .btn-secondary,.btn-default,.btn-light{background:var(--surface)!important;border-color:var(--border-2)!important;color:var(--ink)!important;}
   .btn-secondary:hover,.btn-default:hover{border-color:var(--faint)!important;background:var(--paper)!important;}
   .btn-info,.btn-warning{background:var(--tint)!important;border-color:transparent!important;color:var(--forest)!important;}
@@ -149,3 +206,5 @@
   ::-webkit-scrollbar-thumb{background:#dcdcd6;border:3px solid var(--paper);border-radius:10px;}
   ::-webkit-scrollbar-thumb:hover{background:#c8c8c2;}
 </style>
+
+<link rel="stylesheet" href="<?= base_url('assets/css/collabify-ui.css') ?>">
