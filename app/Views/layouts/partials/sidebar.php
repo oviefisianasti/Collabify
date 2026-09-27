@@ -3,7 +3,7 @@
 <aside class="main-sidebar sidebar-light-primary elevation-1">
 
     <a href="<?= base_url('/dashboard') ?>" class="brand-link">
-        <span class="brand-text font-weight-bold">CAMPUSS SAVER</span>
+        <span class="brand-text font-weight-bold">COLLABIFY</span>
     </a>
 
     <div class="sidebar">

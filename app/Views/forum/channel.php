@@ -300,12 +300,28 @@
 <style>
 
 /* ========================================
-   CHAT CONTAINER
+   FORUM CHANNEL — COLLABIFY UI
 ======================================== */
 
 .forum-chat-card {
-    background: #fff;
-    border: 1px solid var(--border);
+    --chat-bg: #FFFFFF;
+    --chat-surface: #FFFFFF;
+    --chat-surface-soft: #FAFAFA;
+    --chat-text: #30323A;
+    --chat-muted: #77777D;
+    --chat-faint: #A2A3A8;
+    --chat-border: #F0DFE1;
+    --chat-border-strong: #E7D9DB;
+
+    --chat-blue: #79A9D8;
+    --chat-blue-dark: #5E91C4;
+    --chat-blue-soft: #EAF3FA;
+
+    --chat-pink: #FF677D;
+    --chat-pink-soft: #FFF0F1;
+
+    background: var(--chat-bg);
+    border: 1px solid var(--chat-border);
     border-radius: 14px;
 
     height: calc(100vh - 175px);
@@ -315,6 +331,41 @@
     flex-direction: column;
 
     overflow: hidden;
+
+    color: var(--chat-text);
+
+    box-shadow:
+        0 8px 24px rgba(48, 50, 58, 0.05);
+}
+
+
+/* ========================================
+   DARK MODE
+======================================== */
+
+body.collabify-dark .forum-chat-card {
+    --chat-bg: #181A1F;
+    --chat-surface: #202329;
+    --chat-surface-soft: #24272D;
+    --chat-text: #F1F2F4;
+    --chat-muted: #A7AAB2;
+    --chat-faint: #858993;
+    --chat-border: #343841;
+    --chat-border-strong: #424752;
+
+    --chat-blue: #79A9D8;
+    --chat-blue-dark: #5E91C4;
+    --chat-blue-soft: #293541;
+
+    --chat-pink: #FF677D;
+    --chat-pink-soft: #34303A;
+
+    background: var(--chat-bg);
+    border-color: var(--chat-border);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
 }
 
 
@@ -325,8 +376,8 @@
 .forum-chat-header {
     padding: 17px 22px;
 
-    border-bottom: 1px solid var(--border);
-    background: #fff;
+    border-bottom: 1px solid var(--chat-border);
+    background: var(--chat-surface);
 
     flex-shrink: 0;
 }
@@ -343,8 +394,8 @@
 
     border-radius: 10px;
 
-    background: var(--tint);
-    color: var(--forest);
+    background: var(--chat-blue-soft);
+    color: var(--chat-blue-dark);
 
     display: flex;
     align-items: center;
@@ -352,6 +403,8 @@
 
     font-weight: 700;
     font-size: 18px;
+
+    flex-shrink: 0;
 }
 
 .channel-title strong {
@@ -360,7 +413,7 @@
     font-size: 16px;
     font-weight: 600;
 
-    color: var(--ink);
+    color: var(--chat-text);
 }
 
 .channel-title span {
@@ -369,7 +422,7 @@
     margin-top: 2px;
 
     font-size: 12px;
-    color: var(--faint);
+    color: var(--chat-faint);
 }
 
 
@@ -384,7 +437,37 @@
 
     padding: 22px;
 
-    background: #fff;
+    background: var(--chat-bg);
+
+    color: var(--chat-text);
+}
+
+
+/* scrollbar */
+
+.forum-messages::-webkit-scrollbar {
+    width: 7px;
+}
+
+.forum-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.forum-messages::-webkit-scrollbar-thumb {
+    background: #D8D9DC;
+    border-radius: 999px;
+}
+
+.forum-messages::-webkit-scrollbar-thumb:hover {
+    background: #BFC1C6;
+}
+
+body.collabify-dark .forum-messages::-webkit-scrollbar-thumb {
+    background: #444954;
+}
+
+body.collabify-dark .forum-messages::-webkit-scrollbar-thumb:hover {
+    background: #555B68;
 }
 
 
@@ -403,7 +486,7 @@
 
     text-align: center;
 
-    color: var(--ink);
+    color: var(--chat-text);
 }
 
 .chat-empty-icon {
@@ -412,8 +495,8 @@
 
     border-radius: 18px;
 
-    background: var(--tint);
-    color: var(--forest);
+    background: var(--chat-blue-soft);
+    color: var(--chat-blue);
 
     display: flex;
     align-items: center;
@@ -429,12 +512,14 @@
     font-weight: 600;
 
     margin-bottom: 7px;
+
+    color: var(--chat-text);
 }
 
 .chat-empty p {
     max-width: 380px;
 
-    color: var(--faint);
+    color: var(--chat-muted);
 
     font-size: 13px;
     line-height: 1.6;
@@ -455,10 +540,13 @@
     padding: 8px 6px;
 
     border-radius: 10px;
+
+    transition:
+        background .15s ease;
 }
 
 .message-item:hover {
-    background: #fafcfb;
+    background: var(--chat-surface-soft);
 }
 
 .message-avatar {
@@ -469,8 +557,8 @@
 
     border-radius: 50%;
 
-    background: var(--tint);
-    color: var(--forest);
+    background: var(--chat-blue-soft);
+    color: var(--chat-blue-dark);
 
     display: flex;
     align-items: center;
@@ -494,20 +582,20 @@
 }
 
 .message-meta strong {
-    color: var(--ink);
+    color: var(--chat-text);
 
     font-size: 14px;
     font-weight: 600;
 }
 
 .message-meta span {
-    color: var(--faint);
+    color: var(--chat-faint);
 
     font-size: 11px;
 }
 
 .message-text {
-    color: #4e5a54;
+    color: var(--chat-muted);
 
     font-size: 14px;
     line-height: 1.55;
@@ -523,9 +611,9 @@
 .forum-input-area {
     padding: 14px 18px 18px;
 
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--chat-border);
 
-    background: #fff;
+    background: var(--chat-surface);
 
     flex-shrink: 0;
 }
@@ -543,32 +631,36 @@
 
     height: 46px;
 
-    border: 1px solid var(--border-2);
+    border: 1px solid var(--chat-border-strong);
     border-radius: 11px;
 
     padding: 0 15px;
 
-    background: #fafbfa;
+    background: var(--chat-surface-soft);
 
-    color: var(--ink);
+    color: var(--chat-text);
 
     font-size: 14px;
 
     outline: none;
 
-    transition: .15s ease;
+    transition:
+        border-color .15s ease,
+        background .15s ease,
+        box-shadow .15s ease;
 }
 
 .forum-message-input:focus {
-    border-color: var(--forest);
+    border-color: var(--chat-blue);
 
-    background: #fff;
+    background: var(--chat-surface);
 
-    box-shadow: 0 0 0 3px rgba(79, 143, 107, .08);
+    box-shadow:
+        0 0 0 3px rgba(121, 169, 216, 0.12);
 }
 
 .forum-message-input::placeholder {
-    color: #a1aaa5;
+    color: var(--chat-faint);
 }
 
 .forum-send-button {
@@ -578,8 +670,8 @@
     border: none;
     border-radius: 11px;
 
-    background: var(--forest);
-    color: #fff;
+    background: var(--chat-blue-dark);
+    color: #FFFFFF;
 
     display: flex;
     align-items: center;
@@ -587,12 +679,13 @@
 
     cursor: pointer;
 
-    transition: .15s ease;
+    transition:
+        opacity .15s ease,
+        transform .15s ease;
 }
 
 .forum-send-button:hover {
     opacity: .9;
-
     transform: translateY(-1px);
 }
 
@@ -610,9 +703,11 @@
 
     padding: 14px 18px;
 
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--chat-border);
 
-    background: #fafcfb;
+    background: var(--chat-surface-soft);
+
+    color: var(--chat-text);
 }
 
 .voice-placeholder-icon {
@@ -621,8 +716,8 @@
 
     border-radius: 10px;
 
-    background: var(--tint);
-    color: var(--forest);
+    background: var(--chat-blue-soft);
+    color: var(--chat-blue);
 
     display: flex;
     align-items: center;
@@ -636,7 +731,7 @@
 
     font-size: 13px;
 
-    color: var(--ink);
+    color: var(--chat-text);
 }
 
 .voice-placeholder p {
@@ -644,7 +739,7 @@
 
     font-size: 11px;
 
-    color: var(--faint);
+    color: var(--chat-faint);
 }
 
 .voice-placeholder .btn {
@@ -670,9 +765,12 @@
 
 .voice-participants-box {
     margin: 0 18px 18px;
-    border: 1px solid var(--border);
+
+    border: 1px solid var(--chat-border);
     border-radius: 14px;
-    background: #fff;
+
+    background: var(--chat-surface);
+
     overflow: hidden;
 }
 
@@ -680,9 +778,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 14px 18px;
-    border-bottom: 1px solid var(--border);
-    color: var(--ink);
+
+    border-bottom: 1px solid var(--chat-border);
+
+    color: var(--chat-text);
+
     font-size: 14px;
     font-weight: 600;
 }
@@ -694,42 +796,59 @@
 .voice-participant-count {
     min-width: 28px;
     height: 28px;
+
     padding: 0 8px;
+
     border-radius: 999px;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--tint);
-    color: var(--forest);
+
+    background: var(--chat-blue-soft);
+    color: var(--chat-blue-dark);
+
     font-size: 12px;
 }
 
 .voice-participants-list {
     padding: 8px;
+
+    background: var(--chat-surface);
 }
 
 .voice-participant {
     display: flex;
     align-items: center;
+
     gap: 12px;
+
     padding: 9px 10px;
+
     border-radius: 10px;
+
+    transition: background .15s ease;
 }
 
 .voice-participant:hover {
-    background: #fafcfb;
+    background: var(--chat-surface-soft);
 }
 
 .voice-participant-avatar {
     width: 38px;
     height: 38px;
+
     flex-shrink: 0;
+
     border-radius: 50%;
-    background: var(--tint);
-    color: var(--forest);
+
+    background: var(--chat-blue-soft);
+    color: var(--chat-blue-dark);
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 13px;
     font-weight: 700;
 }
@@ -740,28 +859,92 @@
 }
 
 .voice-participant-name {
-    color: var(--ink);
+    color: var(--chat-text);
+
     font-size: 14px;
     font-weight: 600;
 }
 
 .voice-participant-status {
     margin-top: 2px;
-    color: var(--faint);
+
+    color: var(--chat-faint);
+
     font-size: 11px;
 }
 
 .voice-participant-mic {
-    color: var(--forest);
+    color: var(--chat-blue);
+
     font-size: 18px;
 }
 
 .voice-empty {
     padding: 16px;
+
     text-align: center;
-    color: var(--faint);
+
+    color: var(--chat-faint);
+
     font-size: 13px;
+
+    background: var(--chat-surface);
 }
+
+
+/* ========================================
+   BUTTON DI HEADER
+======================================== */
+
+.content-header .btn-light {
+    background: #FFFFFF;
+    border-color: #E7D9DB;
+    color: #30323A;
+}
+
+.content-header .btn-light:hover {
+    background: #FFF0F1;
+    border-color: #FFCCD2;
+    color: #FF677D;
+}
+
+body.collabify-dark .content-header .btn-light {
+    background: #202329;
+    border-color: #343841;
+    color: #F1F2F4;
+}
+
+body.collabify-dark .content-header .btn-light:hover {
+    background: #34303A;
+    border-color: #FF677D;
+    color: #FF9AA2;
+}
+
+
+/* ========================================
+   DARK MODE — EXTRA TEXT SAFETY
+======================================== */
+
+body.collabify-dark .forum-chat-card strong {
+    color: var(--chat-text);
+}
+
+body.collabify-dark .forum-chat-card p {
+    color: var(--chat-muted);
+}
+
+body.collabify-dark .forum-chat-card span {
+    color: var(--chat-muted);
+}
+
+body.collabify-dark .forum-chat-card .message-meta span,
+body.collabify-dark .forum-chat-card .channel-title span,
+body.collabify-dark .forum-chat-card .voice-placeholder p,
+body.collabify-dark .forum-chat-card .voice-participant-status,
+body.collabify-dark .forum-chat-card .voice-empty {
+    color: var(--chat-faint);
+}
+
 
 /* ========================================
    MOBILE
@@ -771,7 +954,6 @@
 
     .forum-chat-card {
         height: calc(100vh - 145px);
-
         border-radius: 10px;
     }
 
@@ -783,7 +965,21 @@
         padding: 10px;
     }
 
+    .voice-placeholder {
+        flex-wrap: wrap;
+    }
+
+    .voice-controls {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .voice-controls .btn {
+        flex: 1;
+    }
+
 }
+
 </style>
 
 

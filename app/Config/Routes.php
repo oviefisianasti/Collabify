@@ -54,13 +54,19 @@ $routes->get('wishlist', 'WishlistController::saya', ['filter' => 'auth']);
 $routes->get('baca/file/(:num)', 'BacaController::file/$1', ['filter' => 'auth']);
 $routes->get('baca/(:num)', 'BacaController::index/$1', ['filter' => 'auth']);
 
+/// ── Dashboard Collabify ─────────────────────────────────────────────
+$routes->get('dashboard', 'DashboardController::index', ['filter' => 'auth']);
+
+
 // ── Area Admin (role admin) ─────────────────────────────────────────
 $routes->group('', ['filter' => 'role:admin'], static function ($routes) {
 
-    $routes->get('dashboard', 'DashboardController::index');
+    // JANGAN taruh dashboard di sini lagi
+
+    // Pengajuan masuk
+    $routes->get('pengajuan', 'PengajuanController::index');
 
     // Pengajuan masuk (approve/tolak)
-    $routes->get('pengajuan', 'PengajuanController::index');
     $routes->get('pengajuan/setujui/(:num)', 'PengajuanController::setujui/$1');
     $routes->get('pengajuan/tolak/(:num)', 'PengajuanController::tolak/$1');
 
@@ -128,7 +134,7 @@ $routes->group('', ['filter' => 'role:admin'], static function ($routes) {
     $routes->get('pengembalian/hapus/(:num)', 'PengembalianController::hapus/$1');
     $routes->get('pengembalian/lunas/(:num)', 'PengembalianController::tandaiLunas/$1');
     $routes->post('create/pengembalian', 'PengembalianController::simpanPengembalian');
-
+    
 });
     
 // ── Groups / Kelompok (wajib login) ────────────────────────────────
