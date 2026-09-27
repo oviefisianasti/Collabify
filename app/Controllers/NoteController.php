@@ -50,7 +50,7 @@ class NoteController extends BaseController
         }
 
         return view('notes/index', [
-            'title' => 'Catatan — CAMPUSS SAVER',
+            'title' => 'Catatan — COLLABIFY',
             'notes' => $notes,
         ]);
     }
@@ -72,7 +72,7 @@ class NoteController extends BaseController
         }
 
         return view('notes/create', [
-            'title'  => 'Tambah Catatan — CAMPUSS SAVER',
+            'title'  => 'Tambah Catatan — COLLABIFY',
             'groups' => $groups,
         ]);
     }

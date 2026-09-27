@@ -9,7 +9,7 @@ class DashboardController extends BaseController
         $db = \Config\Database::connect();
 
         // ─────────────────────────────────────────────
-        // KPI CAMPUSS SAVER
+        // KPI  COLLABIFY
         // ─────────────────────────────────────────────
 
         $totalUser = $db->table('users')

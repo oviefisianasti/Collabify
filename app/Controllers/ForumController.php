@@ -85,7 +85,7 @@ class ForumController extends BaseController
         }
 
         return view('forum/index', [
-            'title' => 'Forum — CAMPUSS SAVER',
+            'title' => 'Forum — COLLABIFY',
             'userGroups' => $userGroups,
             'communityChannels' => $communityChannels,
             'groupChannels' => $groupChannels,
@@ -241,7 +241,7 @@ class ForumController extends BaseController
         }
 
         return view('forum/channel', [
-            'title' => '#' . $channel['nama_channel'] . ' — Forum CAMPUSS SAVER',
+            'title' => '#' . $channel['nama_channel'] . ' — Forum COLLABIFY',
             'channel' => $channel,
             'messages' => $messages,
             'userGroups' => $userGroups,

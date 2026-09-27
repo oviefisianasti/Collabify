@@ -50,7 +50,7 @@ class TaskController extends BaseController
         }
 
         return view('tasks/index', [
-            'title' => 'Tugas — CAMPUSS SAVER',
+            'title' => 'Tugas — COLLABIFY',
             'tasks' => $tasks,
         ]);
     }
@@ -72,7 +72,7 @@ class TaskController extends BaseController
         }
 
         return view('tasks/create', [
-            'title'  => 'Tambah Tugas — CAMPUSS SAVER',
+            'title'  => 'Tambah Tugas —  COLLABIFY',
             'groups' => $groups,
         ]);
     }
@@ -150,7 +150,7 @@ class TaskController extends BaseController
         }
 
         return view('tasks/show', [
-            'title' => 'Detail Tugas — CAMPUSS SAVER',
+            'title' => 'Detail Tugas — COLLABIFY',
             'task'  => $task,
         ]);
     }

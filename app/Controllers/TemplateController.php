@@ -36,7 +36,7 @@ class TemplateController extends BaseController
             ->findAll();
 
         return view('templates/index', [
-            'title'     => 'Template — CAMPUSS SAVER',
+            'title'     => 'Template —  COLLABIFY',
             'templates' => $templates,
         ]);
     }
@@ -44,7 +44,7 @@ class TemplateController extends BaseController
     public function create()
     {
         return view('templates/create', [
-            'title' => 'Upload Template — CAMPUSS SAVER',
+            'title' => 'Upload Template — COLLABIFY',
         ]);
     }
 
@@ -289,7 +289,7 @@ public function show($idTemplate)
 
     return view('templates/show', [
         'title' =>
-            'Detail Template — CAMPUSS SAVER',
+            'Detail Template — COLLABIFY',
 
         'template' =>
             $template,

@@ -195,7 +195,7 @@
                             </strong>
 
                             <p class="mb-0 text-muted small">
-                                CAMPUSS SAVER akan membuat salinan
+                                COLLABIFY akan membuat salinan
                                 baru dari file template. Perubahan
                                 pada workspace tidak akan mengubah
                                 template asli.

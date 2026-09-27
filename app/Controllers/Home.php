@@ -10,7 +10,7 @@ class Home extends BaseController
         return view('landing page/index');
     }
 
-    // Beranda CAMPUSS SAVER
+    // Beranda COLLABIFY
     public function beranda()
     {
         $db = \Config\Database::connect();
@@ -79,7 +79,7 @@ class Home extends BaseController
             ->getResultArray();
 
         return view('home/index', [
-            'title'     => 'Beranda — CAMPUSS SAVER',
+            'title'     => 'Beranda —  COLLABIFY',
             'templates' => $templates,
             'groups'    => $groups,
             'tasks'     => $tasks,

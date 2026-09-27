@@ -84,7 +84,7 @@ class WorkspaceController extends BaseController
             ->findAll();
 
         return view('workspaces/index', [
-            'title'      => 'Workspace — CAMPUSS SAVER',
+            'title'      => 'Workspace — COLLABIFY',
             'workspaces' => $workspaces,
         ]);
     }
